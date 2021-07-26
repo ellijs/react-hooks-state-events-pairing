@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 const Comments = ({ comments, searchComment, deleteComment, handleSortComments }) => {
     const [ isClicked, setIsclicked ] = useState(true) 
+    const [ searchData, setSearchData ] = useState("")
     const [ liked, setLiked ] = useState(0)
     const [ disliked, setDisliked ] = useState(0)
-    const [ searchData, setSearchData ] = useState("")
 
 
     const toggleComments = () => {
@@ -68,7 +68,7 @@ const Comments = ({ comments, searchComment, deleteComment, handleSortComments }
             <button style={{margin: "10px"}} onClick={toggleComments}>{ isClicked? "Hide" : "Show" } Comments</button>
             <input onChange={onChangeHandler} placeholder="search user name..."></input>
             <button style={{margin: "10px"}} onClick={searchUserName}>Search</button>
-            <select onChange={handleSort} placeholder="Sort By">
+            <select onChange={handleSort}>
                 <option>Sort By</option>
                 <option>reverse-alphabetical</option>
             </select>

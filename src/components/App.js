@@ -4,7 +4,7 @@ import Comments from "./Comments"
 import { useState } from 'react'
 
 function App() {
-  console.log("Here's your data:", video);
+  // console.log("Here's your data:", video);
   const [ searchByUserName, setSearchByUserName ] = useState(video.comments)
   const [ sortBy, setSortBy ] = useState("")
   
@@ -15,14 +15,19 @@ function App() {
   }
 
   const deleteComment = (id) => {
+    console.log("Hi")
       setSearchByUserName(searchByUserName.filter((comment=> comment.id !== id)))
   }
 
   const handleSortComments = (value) => {
+      console.log(value)
       setSortBy(value)
-      switch (sortBy) {
+      switch (value) {
         case "reverse-alphabetical" : 
-            setSearchByUserName(searchByUserName.sort((a, b)=> a.user > b.user ? 1 : -1))
+            setSearchByUserName(searchByUserName.sort((a, b)=> a.user > b.user ? -1 : 1))
+          break;
+        case "Sort By" :
+          return true
           break;
         default:
       }
